@@ -1,7 +1,13 @@
 // server.js
 console.log('May Node be with you')
 const express = require('express')
+const bodyParser = require('body-parser') 
+//bodyParser is deprecated, we can take it out later
 const app = express()
+
+
+//bodyParser is deprecated, we can take it out later
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.listen(3000, function () {
     console.log('listening on 3000')
