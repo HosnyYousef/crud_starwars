@@ -4,7 +4,8 @@ const express = require('express')
 // const bodyParser = require('body-parser') 
 //bodyParser is deprecated, we can take it out later
 const app = express()
-
+const MongoClient = require('mongodb').MongoClient
+const connectionString = 'mongodb+srv://test:testtesttest@cluster0.m4qnvex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 //bodyParser is deprecated, we can take it out later
 // app.use(bodyParser.urlencoded({extended: true}))
