@@ -10,6 +10,10 @@ const connectionString = 'mongodb+srv://test:testtesttest@cluster0.m4qnvex.mongo
 //bodyParser is deprecated, we can take it out later
 // app.use(bodyParser.urlencoded({extended: true}))
 
+MongoClient.connect(connectionString, (err, client) => {
+    if (err) return console.error(err)
+    console.log('Connected to Database')
+})
 
 // Make sure you place this before your CRUD handlers!
 app.use(express.urlencoded({ extended: true }))
