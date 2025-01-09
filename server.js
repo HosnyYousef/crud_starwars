@@ -5,7 +5,11 @@ const express = require('express')
 //bodyParser is deprecated, we can take it out later
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const connectionString = 'mongodb+srv://test:testtesttest@cluster0.m4qnvex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const connectionString = 'mongodb://test:testtesttest@ac-knf3crk-shard-00-00.m4qnvex.mongodb.net:27017,ac-knf3crk-shard-00-01.m4qnvex.mongodb.net:27017,ac-knf3crk-shard-00-02.m4qnvex.mongodb.net:27017/?ssl=true&replicaSet=atlas-it8cwt-shard-0&authSource=admin&retryWrites=true&w=majority'
+
+
+// 'mongodb+srv://test:testtesttest@cluster0.m4qnvex.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
 
 //bodyParser is deprecated, we can take it out later
 // app.use(bodyParser.urlencoded({extended: true}))
