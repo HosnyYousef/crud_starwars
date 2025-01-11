@@ -15,7 +15,9 @@ const connectionString = 'mongodb://user2000:test123@ac-knf3crk-shard-00-00.m4qn
 //bodyParser is deprecated, we can take it out later
 // app.use(bodyParser.urlencoded({extended: true}))
 
-MongoClient.connect(connectionString, (err, client) => {
+MongoClient.connect(connectionString, {
+    useUnifiedTopology: true
+}, (err, client) => {
     if (err) return console.error(err)
     console.log('Connected to Database')
 })
