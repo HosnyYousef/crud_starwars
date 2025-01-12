@@ -25,7 +25,10 @@ MongoClient.connect(connectionString).then(client => {
 
         app.use(express.urlencoded({ extended: true })) // Make sure you place this before your CRUD handle!
         app.get('/', function (req, res) {
-            quotesCollection.find().toArray()
+            quotesCollection.find().toArray() //quotes in an array in the terminal. We see the quotes that we added
+                .then(results => {
+                    console.log(results)
+                })
             res.sendFile(__dirname + '/index.html')
         })
         app.post('/quotes', (req, res) => {
