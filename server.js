@@ -1,4 +1,7 @@
 
+// upgrate mongodb: 
+    // npm install mongodb@3.6
+
 
 // server.js
 const express = require('express')
@@ -22,6 +25,7 @@ MongoClient.connect(connectionString).then(client => {
 
         app.use(express.urlencoded({ extended: true })) // Make sure you place this before your CRUD handle!
         app.get('/', function (req, res) {
+            quotesCollection.find().toArray()
             res.sendFile(__dirname + '/index.html')
         })
         app.post('/quotes', (req, res) => {
@@ -29,6 +33,7 @@ MongoClient.connect(connectionString).then(client => {
               .insertOne(req.body)
               .then(result => {
                 console.log(result)
+                res.redirect('/')
               })
               .catch(error => console.error(error))
           })
