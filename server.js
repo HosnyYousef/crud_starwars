@@ -22,6 +22,7 @@ MongoClient.connect(connectionString).then(client => {
         console.log('Connected to Database')
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
+        app.set('view engine', 'ejs')
 
         app.use(express.urlencoded({ extended: true })) // Make sure you place this before your CRUD handle!
         app.get('/', function (req, res) {
