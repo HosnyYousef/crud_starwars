@@ -23,8 +23,10 @@ MongoClient.connect(connectionString).then(client => {
         const db = client.db('star-wars-quotes')
         const quotesCollection = db.collection('quotes')
         app.set('view engine', 'ejs')
-
         app.use(express.urlencoded({ extended: true })) // Make sure you place this before your CRUD handle!
+        app.use(express.static('public'))
+
+
         app.get('/', function (req, res) {
             quotesCollection.find().toArray() //quotes in an array in the terminal. We see the quotes that we added
                 .then(results => {
