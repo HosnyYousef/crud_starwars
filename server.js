@@ -30,7 +30,11 @@ MongoClient.connect(connectionString).then(client => {
                 .then(results => {
                     console.log(results)
                 })
-            res.sendFile(__dirname + '/index.html')
+                .catch(error => console.error(error))
+                res.render('index.ejs', {}) // it's already expecting it to be inside of the views folder so we don't need to specify that location it already that's where it's expecting it
+                
+            // res.sendFile(__dirname + '/index.html')
+                // replaced with res.render('index.ejs', {})
         })
         app.post('/quotes', (req, res) => {
             quotesCollection
