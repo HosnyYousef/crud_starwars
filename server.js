@@ -29,12 +29,12 @@ MongoClient.connect(connectionString).then(client => {
             quotesCollection.find().toArray() //quotes in an array in the terminal. We see the quotes that we added
                 .then(results => {
                     console.log(results)
+                    res.render('index.ejs', { quotes: results })
+                    // res.render('index.ejs', {}) // it's already expecting it to be inside of the views folder so we don't need to specify that location it already that's where it's expecting it
                 })
                 .catch(error => console.error(error))
-                res.render('index.ejs', {}) // it's already expecting it to be inside of the views folder so we don't need to specify that location it already that's where it's expecting it
-                
             // res.sendFile(__dirname + '/index.html')
-                // replaced with res.render('index.ejs', {})
+                // replaced with res.render('index.ejs', {}), and moved it to app.get
         })
         app.post('/quotes', (req, res) => {
             quotesCollection
